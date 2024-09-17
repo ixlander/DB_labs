@@ -1,2 +1,2 @@
 alter table users
-add column isadmin int;
+add column is_admin int;
