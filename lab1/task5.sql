@@ -1,2 +1,2 @@
 alter table users
-alter column is_admin set default false;
+alter column isadmin set default false;
