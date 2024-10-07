@@ -12,13 +12,13 @@ SELECT DISTINCT lastname FROM employees;
 SELECT * FROM employees WHERE lastname = 'Smith';
 
 -- 6.
-SELECT * FROM employees WHERE lastname IN ('Smith', 'Doe');
+SELECT * FROM employees WHERE lastname = 'Smith' or lastname = 'Doe';
 
 -- 7.
 SELECT * FROM employees WHERE department = 14;
 
 -- 8.
-SELECT * FROM employees WHERE department IN (37, 77);
+SELECT * FROM employees WHERE department between 37 and 77;
 
 -- 9.
 SELECT SUM(budget) AS total_budget FROM departments;
@@ -30,10 +30,10 @@ SELECT department, COUNT(*) AS employee_count FROM employees GROUP BY department
 SELECT department FROM employees GROUP BY department HAVING COUNT(*) > 2;
 
 -- 12.
-SELECT name FROM departments ORDER BY budget DESC LIMIT 1 OFFSET 1;
+SELECT name, budget FROM departments ORDER BY budget DESC LIMIT 1 OFFSET 2;
 
 -- 13.
-SELECT e.name, e.lastname
+SELECT e.name, e.lastname, d.name, d.budget
 FROM employees e
 JOIN departments d ON e.department = d.code
 WHERE d.budget = (SELECT MIN(budget) FROM departments);
@@ -58,3 +58,4 @@ DELETE FROM employees WHERE department = 14;
 
 -- 19.
 DELETE FROM employees;
+

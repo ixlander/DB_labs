@@ -1,7 +1,7 @@
 create database lab1;
 
 create table users (
-    id serial primary key,
+    id serial,
     firstname varchar(50),
     lastname varchar(50)
 );
@@ -28,7 +28,6 @@ create table tasks (
     firstname varchar(50),
     user_id int
 );
-
 
 drop database lab1;
 
