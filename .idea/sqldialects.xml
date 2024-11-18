@@ -12,6 +12,8 @@
     <file url="file://$PROJECT_DIR$/lab6/queries.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/lab7/queries.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/lab7/tables.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/lab8/data.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/lab8/queries.sql" dialect="PostgreSQL" />
     <file url="file://$USER_HOME$/Downloads/lecture7_sample.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
