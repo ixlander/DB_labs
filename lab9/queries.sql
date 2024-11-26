@@ -5,6 +5,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+select increase_value((select cast(max(employees.emp_salary) as integer) from employees));
+
 CREATE OR REPLACE FUNCTION compare_numbers(num1 INTEGER, num2 INTEGER)
 RETURNS TEXT AS $$
 BEGIN
@@ -18,6 +20,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT compare_numbers(20, 15);
+SELECT compare_numbers(10, 10);
+SELECT compare_numbers(5, 8);
 
 CREATE OR REPLACE FUNCTION number_series(n INTEGER)
 RETURNS TEXT AS $$
@@ -33,6 +38,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT number_series(5);  -- Возвращает '1, 2, 3, 4, 5'
+
 
 CREATE OR REPLACE FUNCTION find_employee(emp_name VARCHAR)
 RETURNS TABLE(emp_id INT, name VARCHAR, department VARCHAR, salary DECIMAL) AS $$
@@ -41,6 +48,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT * FROM find_employee('John Doe');
 
 CREATE OR REPLACE FUNCTION list_products(category_name VARCHAR)
 RETURNS TABLE(product_id INT, product_name VARCHAR, category VARCHAR, price DECIMAL) AS $$
@@ -62,6 +70,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT calculate_bonus(1);
 
 CREATE OR REPLACE FUNCTION update_salary(emp_id INTEGER)
 RETURNS VOID AS $$
@@ -73,6 +82,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+SELECT update_salary(1);
+SELECT emp_salary FROM employees WHERE id = 1;
 
 CREATE OR REPLACE FUNCTION complex_calculation(num1 INTEGER, str1 VARCHAR)
 RETURNS TEXT AS $$
@@ -90,3 +101,5 @@ BEGIN
     RETURN string_result || ' - Calculation Result: ' || numeric_result;
 END;
 $$ LANGUAGE plpgsql;
+
+SELECT complex_calculation(5, 'Alice');
