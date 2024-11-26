@@ -51,8 +51,7 @@ WHERE code = (
 );
 
 -- 12
-DELETE FROM Boxes
-WHERE value < 150;
+DELETE FROM Boxes WHERE value < 150;
 
 -- 13
 DELETE FROM Boxes
@@ -61,4 +60,3 @@ WHERE warehouse = (
     WHERE location = 'New York'
 )
 RETURNING *;
-
